@@ -1,3 +1,4 @@
 # Ce fichier permet de dire à Docker d'ignorer les fichiers
 # quand il crée le conteneur
-
+#repo local du git
+.git
