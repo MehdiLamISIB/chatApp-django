@@ -69,14 +69,16 @@ CMD python3 manage.py runserver 0:8000
 #
 ## CONTENEUR:
 # Un conteneur est un environnement isolé et léger qui contient
-# ce que mon application a besoin pour fonctionner (fichier,librairies,dépendances),
-# le conteneur partagent le noyau de l'OS ce qui permet une rapide exécution.
+# ce que mon application a besoin pour fonctionner (fichier,librairies,dépendances).
+# Ces conteneurs sont isolé et indépendant de l'OS, les rendant portables,
+# fonctionant de la même manière sur différent environnements.
+#
 #
 ## IMAGE:
-#
-#
-#
-#
+# L'image contient les instructions nécessaire pour construire et exécuter l'application
+# dans le conteneur. Elle peuvent être executé peu importe le système tant qu'il docker
+# peut y tourner. Elle sont immuables, c'est à dire qu'une fois qu'elles on été crée elle ne
+# peuvent pas être modifié. Pour cela il faut modifier le Dockerfile.
 #
 #
 #
