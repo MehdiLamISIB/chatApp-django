@@ -63,11 +63,23 @@ CMD python3 manage.py runserver 0:8000
 ## SI JE VEUX SAUVEGARDER MES INFOS DE DB
 ## JE DOIS UTILISER DOCKER VOLUME
 #
+#----------------------------------------------------------------
+# DEFINITIONS
+#----------------------------------------------------------------
+#
+## CONTENEUR:
+# Un conteneur est un environnement isolé et léger qui contient
+# ce que mon application a besoin pour fonctionner (fichier,librairies,dépendances),
+# le conteneur partagent le noyau de l'OS ce qui permet une rapide exécution.
+#
+## IMAGE:
 #
 #
 #
 #
 #
-
-
+#
+#
+#
+#
 
