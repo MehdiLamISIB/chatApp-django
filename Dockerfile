@@ -38,15 +38,30 @@ CMD python3 manage.py runserver 0:8000
 # docker build . -t image_name
 # -t : permet de dire référencer image_name
 #
-## TOURNE L'IMAGE
+## TOURNE L'IMAGE DANS UN CONTENEUR
 # docker run image_name
 #
+# 
+## TOURNE L'IMAGE DANS UN CONTENEUR AVEC PORT 80
+# docker run --name container_name -p 8000:8000 image_names 
 #
-# TOURNE l'APPLICATION PORT 80
-# docker run -p 8000:8000 image_names 
+#
+## ARRETER CONTENEUR
+# docker stop 
+#
+## LISTE ET DONNE DES INFOS SUR LES CONTENEURS
+# docker ps
+#
+## SUPPRIMER LE CONTENEUR
+# docker rm container_names 
+#
+#
+#
+## LISTER LES IMAGES
+# docker images
 #
 ## SI JE VEUX SAUVEGARDER MES INFOS DE DB
-## JE DOIS AVOIR UTILISER DOCKER VOLUME
+## JE DOIS UTILISER DOCKER VOLUME
 #
 #
 #
