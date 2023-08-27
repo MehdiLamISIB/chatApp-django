@@ -5,6 +5,8 @@ from django.contrib.auth import login,logout,authenticate
 
 
 
+
+
 def connect_user(request,user):
     pass
 
