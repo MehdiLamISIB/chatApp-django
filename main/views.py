@@ -4,8 +4,9 @@ from django.contrib.auth.models import User
 from django.contrib.auth import login,logout,authenticate
 from django.contrib import messages
 ###On import form.py
-from .forms import NewUserForm,ChatMessageForm
+from main.forms import NewUserForm,ChatMessageForm
 from django.contrib.auth.forms import AuthenticationForm
+from .models import ChatMessage
 
 
 ### MENU DE BASE POUR TEST
@@ -15,16 +16,22 @@ def homepage(request):
 
 ### FORUM
 def forum(request):
-	return render(request,template_name="forum.html")
+	messages=ChatMessage.objects.all()
+	print("nombre de message ---> ",len(messages))
+	return render(request,template_name="forum.html",context={"messages":messages})
 
 ### PERMET ENVOYER MESSAGE (creer dans la DB)
 def sendMessage_Forum(request):
 	if request.method=="POST":
 		form=ChatMessageForm(request.POST)
 		if form.is_valid():
-			print("MESSAGE FORM VALIDE")
+			print("MessageForm valide !!!")
+			chatMessage=form.save()
 		else:
-			return redirect('forum')
+			print("PAS VALIDE")
+			chatMessage=ChatMessageForm()
+			pass
+	return redirect('forum')
 
 ### PERMET DE RAJOUTER L'UTILISATEUR
 def register_request(request):

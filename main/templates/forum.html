@@ -3,6 +3,12 @@
 
 
 {% block content %} 
+    {% for message in messages %}
+    <h1>{{message.username}}</h1>
+    <h1>{{message.message}}</h1>
+    <h1>{{message.dateMessage}}</h1>
+    {% endfor %}
+
     {% if user.is_authenticated %}
     <div class="fixed-bottom mb-3 px-5">
         {% include "partials/text_input.html" %}

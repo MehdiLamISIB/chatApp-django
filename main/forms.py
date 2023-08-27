@@ -27,6 +27,8 @@ class NewUserForm(UserCreationForm):
 
 ## Pour Récuprer les nouveaux message envoyés
 class ChatMessageForm(forms.ModelForm):
+    
     class Meta:
         model=ChatMessage
-        fields=("username","textMessage")
+        ### On ne met pas dateMessage car il est généré automatiquement
+        fields=["username","message"]
