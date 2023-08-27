@@ -2,18 +2,27 @@
 {% include "partials/navbar.html" with title_page="Accueil"%}
 
 
-{% block content %} 
-    {% for message in messages %}
-    <h1>{{message.username}}</h1>
-    <h1>{{message.message}}</h1>
-    <h1>{{message.dateMessage}}</h1>
-    {% endfor %}
+{% block content %}
+    <div class="list-group">
+        {% for message in messages %}
 
+
+        <a class="list-group-item list-group-item-action " aria-current="true">
+            <div class="d-flex w-100 h-25 d-inline-block justify-content-between">
+              <h5 class="mb-1">{{message.username}}</h5>
+              <small>{{message.dateMessage}}</small>
+            </div>
+            <p class="mb-1">{{message.message}}</p>
+            <!-- <small>messagerie</small> -->
+        </a>
+        {% endfor %}
+    </div>
     {% if user.is_authenticated %}
     <div class="fixed-bottom mb-3 px-5">
         {% include "partials/text_input.html" %}
     </div>
     {% endif %}
+    
 {% include "partials/footer.html" %}
 
 {% endblock %}

@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth import login,logout,authenticate
 from django.contrib import messages
 ###On import form.py
-from main.forms import NewUserForm,ChatMessageForm
+from .forms import NewUserForm,ChatMessageForm
 from django.contrib.auth.forms import AuthenticationForm
 from .models import ChatMessage
 
@@ -14,27 +14,12 @@ def homepage(request):
     return render(request,template_name="main.html")#,context={'user_name':user.name})
 
 
-### FORUM
-def forum(request):
-	messages=ChatMessage.objects.all()
-	print("nombre de message ---> ",len(messages))
-	return render(request,template_name="forum.html",context={"messages":messages})
 
-### PERMET ENVOYER MESSAGE (creer dans la DB)
-def sendMessage_Forum(request):
-	if request.method=="POST":
-		form=ChatMessageForm(request.POST)
-		if form.is_valid():
-			print("MessageForm valide !!!")
-			chatMessage=form.save()
-		else:
-			chatMessage=ChatMessageForm()
-			pass
-	return redirect('forum')
 
 ### PERMET DE RAJOUTER L'UTILISATEUR
 def register_request(request):
 	if request.method == "POST":
+		print(request.POST)
 		form = NewUserForm(request.POST)
 		##SI FORMULAIRE VALIDE
 		if form.is_valid():
@@ -45,7 +30,7 @@ def register_request(request):
 			return redirect("homepage")
 		else:
 			###MONTRE LES ERREURS DU FORM
-			print(form.error_messages)
+			print(form.errors)
 			messages.error(request, "Unsuccessful registration. Invalid information.")
 	form = NewUserForm()
 	return render (request=request, template_name="register.html", context={"register_form":form})
@@ -78,6 +63,22 @@ def logout_request(request):
 
 
 
+### FORUM
+def forum(request):
+	messages=ChatMessage.objects.all()
+	print("nombre de message ---> ",len(messages))
+	return render(request,template_name="forum.html",context={"messages":messages})
 
+### PERMET ENVOYER MESSAGE (creer dans la DB)
+def sendMessage_Forum(request):
+	if request.method=="POST":
+		form=ChatMessageForm(request.POST)
+		if form.is_valid():
+			print("MessageForm valide !!!")
+			chatMessage=form.save()
+		else:
+			chatMessage=ChatMessageForm()
+			pass
+	return redirect('forum')
 
 
