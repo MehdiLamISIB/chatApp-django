@@ -8,6 +8,11 @@ from .forms import NewUserForm
 from django.contrib.auth.forms import AuthenticationForm
 
 
+### MENU DE BASE POUR TEST
+def homepage(request):
+    return render(request,template_name="main.html")#,context={'user_name':user.name})
+
+
 ### PERMET DE RAJOUTER L'UTILISATEUR
 def register_request(request):
 	if request.method == "POST":
@@ -18,7 +23,7 @@ def register_request(request):
 			user = form.save()
 			login(request, user)
 			messages.success(request, "Registration successful." )
-			return redirect("main:homepage")
+			return redirect("homepage")
 		else:
 			###MONTRE LES ERREURS DU FORM
 			print(form.error_messages)
@@ -37,7 +42,7 @@ def login_request(request):
 			if user is not None:
 				login(request, user)
 				messages.info(request, f"You are now logged in as {username}.")
-				return redirect("main:homepage")
+				return redirect("homepage")
 			else:
 				messages.error(request,"Invalid username or password.")
 		else:
@@ -50,12 +55,8 @@ def login_request(request):
 def logout_request(request):
 	logout(request)
 	messages.info(request, "You have successfully logged out.") 
-	return redirect("main:homepage")
+	return redirect("homepage")
 
-
-### MENU DE BASE POUR TEST
-def homepage(request):
-    return render(request,template_name="main.html")#,context={'user_name':user.name})
 
 
 
