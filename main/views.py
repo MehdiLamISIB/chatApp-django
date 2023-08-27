@@ -19,8 +19,9 @@ def forum(request):
 
 ### PERMET ENVOYER MESSAGE
 def sendMessage_Forum(request):
-
-	return render(request,template_name="forum.html")
+	if request.method=="POST":
+		print(request.POST)
+	return redirect('forum')
 
 ### PERMET DE RAJOUTER L'UTILISATEUR
 def register_request(request):
