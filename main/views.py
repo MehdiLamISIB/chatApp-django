@@ -14,13 +14,13 @@ def homepage(request):
 
 
 ### FORUM
-def Forum(request):
-	return render(request,template_name="main.html")
+def forum(request):
+	return render(request,template_name="forum.html")
 
+### PERMET ENVOYER MESSAGE
+def sendMessage_Forum(request):
 
-def SendMessage_Forum(request):
-	
-	return render(request,template_name="main.html")
+	return render(request,template_name="forum.html")
 
 ### PERMET DE RAJOUTER L'UTILISATEUR
 def register_request(request):
