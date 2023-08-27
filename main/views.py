@@ -20,6 +20,7 @@ def forum(request):
 ### PERMET ENVOYER MESSAGE
 def sendMessage_Forum(request):
 	if request.method=="POST":
+		print("Hello")
 		print(request.POST)
 	return redirect('forum')
 
