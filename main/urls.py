@@ -7,6 +7,7 @@ urlpatterns = [
     #path("", views.homepage, name="homepage"),
     path("",views.homepage,name="homepage"),
     path("forum",views.forum,name="forum"),
+    path("forum/message",views.sendMessage_Forum,name="sendMessage_Forum"),
     path("register", views.register_request, name="register"),
     path("login", views.login_request, name="login"),
     path("logout", views.logout_request, name= "logout"),

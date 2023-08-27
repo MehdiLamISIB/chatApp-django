@@ -12,10 +12,11 @@
         <li class="nav-item">
           <a class="nav-link" href="/logout">Logout</a>
         </li>
-        
-        <li class="nav-item">
-          <a class="nav-link" href="#">Bienvenue, {{user.username}}</a>
-        </li>
+        <!--  
+          <li class="nav-item">
+            <a class="nav-link" href="#">Bienvenue, {{user.username}}</a>
+          </li>
+        -->
   
         {% else %}
   
@@ -23,6 +24,13 @@
           <a class="nav-link" href="/login">Login</a>
         </li>
   
+        {% endif %}
+      </ul>
+      <ul class="navbar-nav ms-auto">
+        {% if user.is_authenticated %}
+        <li class="nav-item">
+          <a class="nav-link" href="#">Bienvenue, {{user.username}}</a>
+        </li>
         {% endif %}
       </ul>
     </div>
