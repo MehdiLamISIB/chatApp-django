@@ -30,6 +30,10 @@ RUN pip install crispy-bootstrap5
 # Ecoute sur le port 8000 où l'app tourne dans le conteneur
 EXPOSE 8000
 
+### RUN VS CMD
+### RUN fait partie du processus de création de l'image
+### CMD est appellé quand l'image tourne dans le conteneur
+
 # Commande pour faire tourner l'application/serveur dans le conteneur
 CMD python3 manage.py runserver 0:8000
 

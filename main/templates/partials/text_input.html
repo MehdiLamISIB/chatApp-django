@@ -1,8 +1,10 @@
 <form method="POST" action="forum/message">
     {% csrf_token %}
     <div class="input-group mb-3">
+        <input type="hiden" class="invisible d-none" id="user_name" value={{user.username}}>
+        
         <input type="text" class="form-control" id="text_message" placeholder="Envoyer ton message ..." aria-label="Recipient's username" aria-describedby="button-addon2">
-        <button class="btn btn-outline-secondary mx-1" type="button" id="button-addon2">Envoyer</button>
+        <button class="btn btn-outline-secondary mx-1" type="submit" id="button-addon2">Envoyer</button>
     </div>
 </form>
 
