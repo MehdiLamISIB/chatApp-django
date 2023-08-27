@@ -28,7 +28,11 @@ def sendMessage_Forum(request):
 			print("MessageForm valide !!!")
 			chatMessage=form.save()
 		else:
-			print("PAS VALIDE")
+			print(form["username"],form["message"])
+			print("")
+			print("")
+			print("")
+			print("")
 			chatMessage=ChatMessageForm()
 			pass
 	return redirect('forum')
