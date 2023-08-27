@@ -40,6 +40,13 @@ def login_request(request):
 	return render(request=request, template_name="login.html", context={"login_form":form})
 
 
+### PERPMET DE SE DECONNECTER
+def logout_request(request):
+	logout(request)
+	messages.info(request, "You have successfully logged out.") 
+	return redirect("main:homepage")
+
+
 ### MENU DE BASE POUR TEST
 def home(request):
     return render(request,template_name="main.html")#,context={'user_name':user.name})
