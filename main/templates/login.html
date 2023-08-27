@@ -1,0 +1,22 @@
+{% include "partials/header.html" with title_page="Login page"%}
+
+{% block content %}      
+
+{% load crispy_forms_tags %}
+
+<!--Login--> 
+<div class="container py-5">
+  <h1>Login</h1>
+  <form method="POST">
+    {% csrf_token %}
+    {{ login_form|crispy }}
+    <button class="btn btn-primary" type="submit">Login</button>
+  </form>
+  <p class="text-center">Pas de compte ? <a href="/register">Crée un compte ici</a>.</p>
+</div>
+
+
+{% include "partials/footer.html" %}
+
+
+{% endblock %}
