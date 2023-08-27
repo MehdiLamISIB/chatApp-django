@@ -1,6 +1,7 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
+from main.models import ChatMessage
 
 ## pour créer le nouveau user
 class NewUserForm(UserCreationForm):
@@ -23,3 +24,9 @@ class NewUserForm(UserCreationForm):
         else:
             print("ERROR USER CREATION")
         return user
+
+## Pour Récuprer les nouveaux message envoyés
+class ChatMessageForm(forms.ModelForm):
+    class Meta:
+        model=ChatMessage
+        fields=("username","textMessage")

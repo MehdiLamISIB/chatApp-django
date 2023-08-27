@@ -1,6 +1,6 @@
 from django.db import models
 
-class Chat_message(models.Model):
+class ChatMessage(models.Model):
     username=models.CharField(max_length=150)
     message=models.CharField(max_length=500)
     ### Permet d'ajouter la date quand créer
