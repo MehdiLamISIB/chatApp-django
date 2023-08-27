@@ -4,4 +4,15 @@ from django.contrib.auth.models import User
 
 ## pour créer le nouveau user
 class NewUserForm(UserCreationForm):
-    
+    email=forms.EmailField(required=False)
+    class Meta:
+        model=User
+        fields=("username","password")
+    def save(self,commit=True):
+        user=super(NewUserForm,self).save(commit=False)
+        if commit:
+            user.save()
+        else:
+            print("ERROR USER CREATION")
+        return user
+    pass
