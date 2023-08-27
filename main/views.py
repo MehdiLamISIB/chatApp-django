@@ -13,6 +13,15 @@ def homepage(request):
     return render(request,template_name="main.html")#,context={'user_name':user.name})
 
 
+### FORUM
+def Forum(request):
+	return render(request,template_name="main.html")
+
+
+def SendMessage_Forum(request):
+	
+	return render(request,template_name="main.html")
+
 ### PERMET DE RAJOUTER L'UTILISATEUR
 def register_request(request):
 	if request.method == "POST":
