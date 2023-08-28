@@ -19,6 +19,7 @@ class NewUserForm(UserCreationForm):
             print("ERROR USER CREATION")
         return user
     pass
+
 ## Pour Récuprer les nouveaux message envoyés
 class ChatMessageForm(forms.ModelForm):
     

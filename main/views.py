@@ -82,3 +82,8 @@ def sendMessage_Forum(request):
 	return redirect('forum')
 
 
+
+### SPECIAL POUR DEBUG
+def delete_message(request):
+	ChatMessage.objects.all().delete()
+	return redirect('homepage')
