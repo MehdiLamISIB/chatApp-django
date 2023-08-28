@@ -45,6 +45,15 @@ INSTALLED_APPS = [
     'channels',
 ]
 
+###PERMET DE SECURISER Channel
+CHANNEL_LAYERS = {
+	"default": {
+		"BACKEND": "channels.layers.InMemoryChannelLayer"
+	}
+}
+
+
+
 ### Permet de rajouter le pack du login
 CRISPY_ALLOWED_TEMPLATE_PACKS="bootstrap5"
 CRISPY_TEMPLATE_PACK='bootstrap5'
