@@ -1,1 +1,1 @@
-#Chat application in Django (with Docker)
+# Chat application in Django (with Docker)
