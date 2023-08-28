@@ -3,6 +3,7 @@
 
 
 {% block content %}
+    <div class="scroll-area-sm">
     <div class="list-group">
         {% for message in messages %}
 
@@ -16,9 +17,17 @@
             <!-- <small>messagerie</small> -->
         </a>
         {% endfor %}
+
+            <!-- <small>messagerie</small> -->
+        </a>
     </div>
+    </div>
+    <div class="my-4 py-4"></div>    
+
+
+
     {% if user.is_authenticated %}
-    <div class="fixed-bottom mb-3 px-5">
+    <div class="fixed-bottom pb-3 px-5 pt-2" > <!-- style="background-color:black"> -->
         {% include "partials/text_input.html" %}
     </div>
     {% endif %}
