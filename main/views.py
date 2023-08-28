@@ -7,7 +7,7 @@ from django.contrib import messages
 from .forms import NewUserForm,ChatMessageForm
 from django.contrib.auth.forms import AuthenticationForm
 from .models import ChatMessage
-
+from django.http import JsonResponse
 
 ### MENU DE BASE POUR TEST
 def homepage(request):
@@ -87,3 +87,12 @@ def sendMessage_Forum(request):
 def delete_message(request):
 	ChatMessage.objects.all().delete()
 	return redirect('homepage')
+
+def getNewMessage(request):
+	messages=ChatMessage.objects.all()#filter(dateMessage__gt=request.GET.get("dateMessage"))
+	print("rafraichissement demande !!!")
+	return render(request,template_name="partials/messageList.html",context={"messages":messages})
+
+def getMessageCount(request):
+	messages=ChatMessage.objects.all()
+	return JsonResponse( {'count':messages})

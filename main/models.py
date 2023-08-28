@@ -8,3 +8,4 @@ class ChatMessage(models.Model):
 
     def __str__(self):
         return  f"{0}%{1}".format(self.username,self.dateMessage)
+    

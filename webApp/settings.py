@@ -11,7 +11,6 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 from pathlib import Path
-
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -31,6 +30,9 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    ### Channel et daphne
+    'channels',
+    ### Application main
     'main',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -41,8 +43,6 @@ INSTALLED_APPS = [
     ### ON RAJOUTE CES LIGNES POUR AJOUTER CRISPY
     'crispy_forms',
     'crispy_bootstrap5',
-    ### Channel
-    'channels',
 ]
 
 ###PERMET DE SECURISER Channel
@@ -51,7 +51,8 @@ CHANNEL_LAYERS = {
 		"BACKEND": "channels.layers.InMemoryChannelLayer"
 	}
 }
-
+### ON PRECISE LE TYPE POUR ASGI
+ASGI_APPLICATION = 'main.application'
 
 
 ### Permet de rajouter le pack du login
@@ -89,6 +90,7 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'webApp.wsgi.application'
+
 
 
 # Database

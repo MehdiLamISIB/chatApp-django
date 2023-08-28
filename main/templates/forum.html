@@ -3,26 +3,8 @@
 
 
 {% block content %}
-    <div class="scroll-area-sm">
-    <div class="list-group">
-        {% for message in messages %}
-
-
-        <a class="list-group-item list-group-item-action " aria-current="true">
-            <div class="d-flex w-100 h-25 d-inline-block justify-content-between">
-              <h5 class="mb-1">{{message.username}}</h5>
-              <small>{{message.dateMessage}}</small>
-            </div>
-            <p class="mb-1">{{message.message}}</p>
-            <!-- <small>messagerie</small> -->
-        </a>
-        {% endfor %}
-
-            <!-- <small>messagerie</small> -->
-        </a>
-    </div>
-    </div>
-    <div class="my-4 py-4"></div>    
+    <!-- Affiche tout les messages -->
+    {% include 'partials/messageList.html' %}
 
 
 
@@ -31,5 +13,25 @@
         {% include "partials/text_input.html" %}
     </div>
     {% endif %}
+    <script>
+        let countDB= {{messages | length}}
+
+        setInterval(function(){
+            const xhttp=new XMLHttpRequest();
+            const xhttp = new XMLHttpRequest();
+            xhttp.open("GET", `http://localhost:8000/message/all`, false);
+            xhttp.send();
+            console.log(xhttp.respontText);
+            console.log("countDB ---> ",countDB);
+            console.log("DB active ---> ",{{ messages | length }});
+            if(countDB== {{ messages | length }} ){
+                console.log("rechargement FAIT");
+                location.reload();
+            }
+        }, 3000);
+
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
+
 {% include "partials/footer.html" %}
 {% endblock %}

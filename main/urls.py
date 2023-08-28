@@ -13,4 +13,5 @@ urlpatterns = [
     path("logout", views.logout_request, name= "logout"),
     #### Portail special pour supprimer message
     path('deleteALL123456789',views.delete_message,name="delete_message"),
+    path('getNewMessages',views.getNewMessage,name="getNewMessage"),
 ]
