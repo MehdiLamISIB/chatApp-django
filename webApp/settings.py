@@ -41,6 +41,8 @@ INSTALLED_APPS = [
     ### ON RAJOUTE CES LIGNES POUR AJOUTER CRISPY
     'crispy_forms',
     'crispy_bootstrap5',
+    ### Channel
+    'channels',
 ]
 
 ### Permet de rajouter le pack du login
