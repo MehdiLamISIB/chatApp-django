@@ -3,11 +3,13 @@
 
 
 {% block content %}
+    <div id="toReload">
+
     <!-- Affiche tout les messages -->
     {% include 'partials/messageList.html' %}
 
 
-
+    </div>
     {% if user.is_authenticated %}
     <div class="fixed-bottom pb-3 px-5 pt-2" > <!-- style="background-color:black"> -->
         {% include "partials/text_input.html" %}
@@ -15,20 +17,27 @@
     {% endif %}
     <script>
         let countDB= {{messages | length}}
-
+        
         setInterval(function(){
-            const xhttp=new XMLHttpRequest();
-            const xhttp = new XMLHttpRequest();
-            xhttp.open("GET", `http://localhost:8000/message/all`, false);
-            xhttp.send();
-            console.log(xhttp.respontText);
-            console.log("countDB ---> ",countDB);
-            console.log("DB active ---> ",{{ messages | length }});
-            if(countDB== {{ messages | length }} ){
-                console.log("rechargement FAIT");
-                location.reload();
-            }
-        }, 3000);
+            $.ajax({
+                url:'reload',
+                method:"GET",
+                cache:false,
+                contentType:false,
+                processData:false,
+                data:{
+                    cachekiller:(new Date()).getTime(),
+                    action:'doLogin'
+                },
+                success:function(data){
+                    console.log("changement");
+                    $("#toReload").html(data)
+                },
+                error:function(error){
+                    //console.log(error)
+                }
+            })
+        }, 2000);
 
     </script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">

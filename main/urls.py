@@ -14,4 +14,6 @@ urlpatterns = [
     #### Portail special pour supprimer message
     path('deleteALL123456789',views.delete_message,name="delete_message"),
     path('getNewMessages',views.getNewMessage,name="getNewMessage"),
+    path('message/all',views.getMessageCount,name="getMessageCount"),
+    path('reload',views.reloadMessage,name="reloadMessage"),
 ]

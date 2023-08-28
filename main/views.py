@@ -8,7 +8,7 @@ from .forms import NewUserForm,ChatMessageForm
 from django.contrib.auth.forms import AuthenticationForm
 from .models import ChatMessage
 from django.http import JsonResponse
-
+from django.http import HttpResponse
 ### MENU DE BASE POUR TEST
 def homepage(request):
     return render(request,template_name="main.html")#,context={'user_name':user.name})
@@ -93,6 +93,12 @@ def getNewMessage(request):
 	print("rafraichissement demande !!!")
 	return render(request,template_name="partials/messageList.html",context={"messages":messages})
 
+
+def reloadMessage(request):
+	new_message=ChatMessage.objects.all()
+	return render(request,template_name="partials/messageList.html",context={"messages":new_message})
+
 def getMessageCount(request):
+	print("COUNT VA BIEN ETRE DONNES")
 	messages=ChatMessage.objects.all()
-	return JsonResponse( {'count':messages})
+	return HttpResponse("<p>"+str(messages)+"</p>")
