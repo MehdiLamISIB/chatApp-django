@@ -8,26 +8,24 @@ FROM python:latest
 ENV DockerDir=/home/app/webapp
 
 ## On créer le dossier dans /home/app/webapp
-RUN mkdir -p ${DockerDir}
+RUN mkdir -p $DockerDir
 
 # On place le programme dans ce repertoire
-WORKDIR ${DockerDir}
+WORKDIR $DockerDir
 
 
 ### COPY est plus sûr que ADD
 ### car ADD ajoute aussi tar.gz (fichier compress)
 ### Docker recommande d'utiliser COPY
 # COPY <src> <dest>
-COPY . /${DockerDir}
+COPY . /$DockerDir
 
 # Rajoute les dépendences qui sont dans le fichier requirement.txt
-RUN pip install -r requirement.txt
+RUN pip install -r requirements.txt
 
 # Installation de crispy-forms avec bootstrap 5
 RUN pip install django-crispy-forms
 RUN pip install crispy-bootstrap5
-
-
 # Ecoute sur le port 8000 où l'app tourne dans le conteneur
 EXPOSE 8000
 
@@ -38,7 +36,10 @@ EXPOSE 8000
 # Commande pour faire tourner l'application/serveur dans le conteneur
 CMD python3 manage.py runserver 0:8000
 
-
+### FIN COMMANDE
+### FIN COMMANDE
+### FIN COMMANDE
+### FIN COMMANDE
 #------------------------------------------------
 # COMMANDE A FAIRE DANS LE TERMINAL
 #------------------------------------------------
