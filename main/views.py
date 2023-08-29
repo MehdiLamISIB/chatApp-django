@@ -82,8 +82,8 @@ def sendMessage_Forum(request):
 		else:
 			chatMessage=ChatMessageForm()
 			pass
-	#return redirect('forum')
-	return HttpResponse(status=204)
+	return redirect('forum')
+	#return HttpResponse(status=204)
 
 
 ### SPECIAL POUR DEBUG

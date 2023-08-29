@@ -1,9 +1,9 @@
-<form method="POST" action="forum/message">
+<form method="POST" action="/forum/message">
     {% csrf_token %}
     <div class="input-group mb-3">
         <input type="hiden" class="invisible d-none" id="username" name="username" value="{{user.username}}" >
         {% include "partials/home_button.html" %}
-        <input type="text" class="form-control rounded" id="message" name="message" placeholder="Envoye ton message ..." aria-label="Recipient's username" aria-describedby="button-addon2">
+        <input type="text" class="form-control rounded" id="MessageText" name="message" placeholder="Envoye ton message ..."  value="" aria-label="Recipient's username" aria-describedby="button-addon2">
         <!-- <button class="btn btn-outline-secondary mx-1" type="submit" id="button-addon2">Envoyer</button> -->
         <button class="btn btn-outline-secondary mx-1" onclick={{post_message_onclick}} id="button-addon2">Envoyer</button>
     </div>
