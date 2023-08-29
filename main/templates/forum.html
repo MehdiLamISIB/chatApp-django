@@ -25,6 +25,11 @@
         // Met la page en bas dès le chargement du début
         window.onload=()=>{window.scrollTo(0,document.body.scrollHeight);}
         
+
+        var form = document.getElementById("formMessage");
+        var text = document.getElementById("MessageText");
+
+
         // Animation du scroll
         //window.onload=()=>{
         //    $("document").ready(()=>{$("html, body").animate({scrollTop:$(document).height()},1000);});
@@ -49,16 +54,15 @@
                     //console.log(error)
                 }
             })
-        }, 1500);
+        }, 500);
 
         // Envoie une requête au POST pour envoyer le message
-        //const SendMessageToServer = () => {
-            //fetch("http://localhost:8000/forum/message",{method:"POST"})
-            //.then((res)=>{
-            //    $("#message").val('TEST');
-            //    console.log(res);
-            //});
-        //};
+        const SendMessageToServer = () => {
+            fetch("http://localhost:8000/forum/message",{method:"POST"})
+            .then((res)=>{
+                console.log(res);
+            });
+        };
 
 
     </script>

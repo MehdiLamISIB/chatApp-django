@@ -1,4 +1,4 @@
-<form method="POST" action="/forum/message">
+<form method="POST" action="/forum/message" id="formMessage">
     {% csrf_token %}
     <div class="input-group mb-3">
         <input type="hiden" class="invisible d-none" id="username" name="username" value="{{user.username}}" >
