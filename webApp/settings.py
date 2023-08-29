@@ -30,8 +30,6 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    ### Channel et daphne
-    'channels',
     ### Application main
     'main',
     'django.contrib.admin',
@@ -46,13 +44,13 @@ INSTALLED_APPS = [
 ]
 
 ###PERMET DE SECURISER Channel
-CHANNEL_LAYERS = {
-	"default": {
-		"BACKEND": "channels.layers.InMemoryChannelLayer"
-	}
-}
+#CHANNEL_LAYERS = {
+#	"default": {
+#		"BACKEND": "channels.layers.InMemoryChannelLayer"
+#	}
+#}
 ### ON PRECISE LE TYPE POUR ASGI
-ASGI_APPLICATION = 'main.application'
+#ASGI_APPLICATION = 'main.application'
 
 
 ### Permet de rajouter le pack du login
