@@ -9,6 +9,9 @@ from django.contrib.auth.forms import AuthenticationForm
 from .models import ChatMessage
 from django.http import JsonResponse
 from django.http import HttpResponse
+
+
+
 ### MENU DE BASE POUR TEST
 def homepage(request):
     return render(request,template_name="main.html")#,context={'user_name':user.name})
@@ -79,8 +82,8 @@ def sendMessage_Forum(request):
 		else:
 			chatMessage=ChatMessageForm()
 			pass
-	return redirect('forum')
-
+	#return redirect('forum')
+	return HttpResponse(status=204)
 
 
 ### SPECIAL POUR DEBUG

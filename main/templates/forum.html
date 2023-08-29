@@ -12,10 +12,11 @@
     </div>
 
     {% if user.is_authenticated %}
-    <div class="fixed-bottom pb-3 px-5 pt-2" > <!-- style="background-color:black"> -->
-        {% include "partials/text_input.html" %}
+    <div class="fixed-bottom pb-3 px-5 pt-2 border-top " style="background-color:white">
+        {% include "partials/text_input.html" with post_message_onclick="SendMessageToServer" %}
     </div>
     {% endif %}
+
     <script>
         let countDB= {{messages | length}};
         //Met la page en bas dès le chargement du début
@@ -45,6 +46,15 @@
                 }
             })
         }, 1500);
+
+        // Envoie une requête au POST pour envoyer le message
+        const SendMessageToServer = () => {
+            fetch("http://localhost:8000/forum/message",{method:"POST"})
+            .then((res)=>{
+                console.log(res);
+            });
+        };
+
 
     </script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
