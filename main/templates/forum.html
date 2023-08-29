@@ -10,14 +10,21 @@
 
 
     </div>
+
     {% if user.is_authenticated %}
     <div class="fixed-bottom pb-3 px-5 pt-2" > <!-- style="background-color:black"> -->
         {% include "partials/text_input.html" %}
     </div>
     {% endif %}
     <script>
-        let countDB= {{messages | length}}
-        
+        let countDB= {{messages | length}};
+        //Met la page en bas dès le chargement du début
+        //window.onload=()=>{window.scrollTo(0,document.body.scrollHeight);}
+        //Animation du scroll
+        window.onload=()=>{
+            $("document").ready(()=>{$("html, body").animate({scrollTop:$(document).height()},1000);});
+        }
+        // Envoie requete par intervalle pour vérifier si nouveau message
         setInterval(function(){
             $.ajax({
                 url:'reload',
@@ -30,14 +37,14 @@
                     action:'doLogin'
                 },
                 success:function(data){
-                    console.log("changement");
-                    $("#toReload").html(data)
+                    //Recharge la page si nouveau élément dans la liste
+                    $("#toReload").html(data);
                 },
                 error:function(error){
                     //console.log(error)
                 }
             })
-        }, 2000);
+        }, 1500);
 
     </script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
