@@ -34,7 +34,7 @@ EXPOSE 8000
 ### CMD est appellé quand l'image tourne dans le conteneur
 
 # Commande pour faire tourner l'application/serveur dans le conteneur
-CMD python3 manage.py runserver 0:8000
+CMD python3 manage.py runserver 0.0.0.0:8000
 
 ### FIN COMMANDE
 ### FIN COMMANDE
@@ -69,6 +69,9 @@ CMD python3 manage.py runserver 0:8000
 #
 ## LISTER LES IMAGES
 # docker images
+#
+## SUPPRIMER IMAGES
+# docker image rm -f NOM_IMAGE
 #
 ## SI JE VEUX SAUVEGARDER MES INFOS DE DB
 ## JE DOIS UTILISER DOCKER VOLUME
