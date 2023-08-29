@@ -27,10 +27,7 @@ RUN pip install -r requirement.txt
 RUN pip install django-crispy-forms
 RUN pip install crispy-bootstrap5
 
-# Installation channels
-RUN pip install -U channels
-# Installation de daphne
-RUN pip install -U daphne
+
 # Ecoute sur le port 8000 où l'app tourne dans le conteneur
 EXPOSE 8000
 
